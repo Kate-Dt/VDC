@@ -5,6 +5,7 @@
 @roseDarker: #F7D0CB;
 @fontOvo: 'Ovo', serif;
 @fontMuli: 'Muli', sans-serif;
+@filterWidth: 200px;
 
 header{
   position: fixed;
@@ -26,22 +27,24 @@ header{
 .header-references{
   width: 100%;
   overflow: hidden;
-  //position: fixed;
-  //top: 0px;
+  position: fixed;
+  top: 0px;
   z-index: 15;
   list-style-type: none;
   margin: 0;
   padding: 0;
   color: @lightGrey;
   float: right;
+  display: inline;
 }
 
+
 .sign-in-link, .sign-out-link, .slash{
+clear:both;
   color: @lightGrey;
   font-size: 150%;
   padding-top: 9px;
-  margin-left: 80%;
-  display: inline-block;
+  
 }
 
 .search-by-name-outer-block{
@@ -70,8 +73,7 @@ header{
   max-width: 350px;
 }
 
-/*--------------for mini-Recipe-----------*/
-<<<<<<< HEAD
+/*--------------for mini-Recipe-----------*/ 
 .container-img{
   width:100%;
 
@@ -154,8 +156,7 @@ h4{
 
 /*-----------------------*/
 
-
-=======
+ 
  .container-img{
  width:100%;
  
@@ -236,5 +237,34 @@ max-width: 350px;
 height:30px;
 }
 
-/*-----------------------*/
->>>>>>> 34ccc294ca0b81f410528c30d683975194828b9b
+/*-----------------------*/ 
+.recipies-and-ingredients-shown-wrapper{
+margin-left: @filterWidth; 
+}
+.top-block-bar{
+
+margin-left: @filterWidth; 
+}
+
+.search-by-name-outer-block{
+margin-left: @filterWidth; height:100px;
+}
+.sidenav{
+
+height: 100%;
+    width: @filterWidth;
+    position: fixed;
+    z-index: 1;
+    top: 55px;
+    left: 0;
+    background-color: @lightGrey;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.top-block-bar, .search-by-name-outer-block{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
