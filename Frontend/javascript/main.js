@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function(){
 
     $('.messageRegister').click(function () {
@@ -13,6 +16,8 @@ $(document).ready(function(){
         $('.register-form').hide();
     })
 
+ 
+
 });
 
 
@@ -20,3 +25,12 @@ $(document).ready(function(){
 // $("#myFavoriteFormSubmitButton").bind('click', function(event) {
 //     $("#myFavoriteForm").submit();
 // });
+
+$(function(){
+$(".sort-recipies-options").children("li").hover(
+function(){
+$(this).css("background-color", "#c0c0c0");},
+function(){
+$(this).css("background-color", "#FFF");
+});
+}); 
