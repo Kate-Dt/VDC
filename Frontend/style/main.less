@@ -22,6 +22,7 @@ header{
 .header-title{
   line-height: 35%;
   margin-left: 40%;
+  max-width:200px;
 }
 
 .header-references{
@@ -36,9 +37,7 @@ header{
   color: @lightGrey;
   float: right;
   display: inline;
-}
-
-
+} 
 .sign-in-link, .sign-out-link, .slash{
 clear:both;
   color: @lightGrey;
@@ -46,220 +45,48 @@ clear:both;
   padding-top: 9px;
   
 }
-
+.headerButtons{
+max-width:200px;
+}
 .search-by-name-outer-block{
   clear: both;
   margin-top: 100px;
   background-color: @roseDarker;
 }
-
-//header links
-
-/* visited link */
-//a:visited {
-//  color: green;
-//}
-/* mouse over link */
-//a:hover {
-//  color: hotpink;
-//}
-/* selected link */
-//a:active {
-//  color: blue;
-//}
+ 
 
 
 .choose-ingredient-block {
-  max-width: 350px;
-}
-
-/*--------------for mini-Recipe-----------*/ 
-.container-img{
-  width:100%;
-
-}
-.mini-recipe-time{
-  border-radius: 25px;
-  position: absolute;
-  top: 5px;
-  left:5px;
-  color: #f1f1f1;
-  width:50px;
-  background: rgba(0, 0, 0, 0.5);
-}
-.mini-recipe-rate{
-  border-radius: 25px;
-  position: absolute;
-  top: 5px;
-  right:5px;
-  color: #f1f1f1;
-  width:50px;
-  background: rgba(0, 0, 0, 0.5);
-}
-.mini-recipe-content{
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
-  padding: 20px;
-
-}
-.mini-recipe{
-  background-image: url("https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/5/0/RX-FNM_050111-TV-Sweeps-010_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371595337466.jpeg");
-  background-repeat: no-repeat;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin:7px;
-  height:400px;
-  position: relative;
-}
-.mini-recipes{
-  background:blanchedalmond;
+  max-width: 350px;  
 }
 
 
-
-
-/*--------------for Recipe Card-----------*/
-.recipe-card-first-wrapper{
-  float:left;
-  max-width:50%;
-  padding-right:20px;
-}
-.recipe-card-image{
-
-  width:70%;
-  float:right;
-}
-.recipe-card-last-wrapper{
-  margin-left:40%;
-}
-h4{
-  //color:green;
-}
-.recipe-card{
-  border:1px solid black;
-  padding:20px;
-  width:80%;
-}
+ 
 .btn{
   padding:0!important;
   padding-bottom:0px;
 }
 .glyphicon{ font-size: 10px;
-}
-.wrapper-missing-ingredients{
-  max-width: 350px;
-  height:30px;
-}
+} 
 
-/*-----------------------*/
-
- 
- .container-img{
- width:100%;
- 
- }
- .mini-recipe-time{
-  border-radius: 25px;
-  position: absolute; 
-    top: 5px;
-	left:5px;
-	 color: #f1f1f1;
-	 width:50px;
-	background: rgba(0, 0, 0, 0.5);  
- }
- .mini-recipe-rate{
-  border-radius: 25px;
-  position: absolute; 
-    top: 5px;
-	right:5px;
-	 color: #f1f1f1;
-	 width:50px;
-	background: rgba(0, 0, 0, 0.5);  
- }
- .mini-recipe-content{
-  position: absolute; 
-    bottom: 0; 
-    background: rgba(0, 0, 0, 0.5);  
-    color: #f1f1f1; 
-    width: 100%; 
-    padding: 20px;  
-	
-	}
-.mini-recipe{
-background-image: url("https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/5/0/RX-FNM_050111-TV-Sweeps-010_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371595337466.jpeg");
- background-repeat: no-repeat;
-padding-left: 0 !important;
-    padding-right: 0 !important;
-margin:7px;
-height:400px;
-position: relative; 
-}
-.mini-recipes{ 
-background:blanchedalmond;
-}
- 
- 
- 
-
-/*--------------for Recipe Card-----------*/
-.recipe-card-first-wrapper{
-float:left;
-max-width:50%; 
-padding-right:20px;
-}
-.recipe-card-image{  
-
- width:70%;
-float:right;
-}  
-.recipe-card-last-wrapper{
-margin-left:40%;
-}
- h4{
-color:green;
-}
-.recipe-card{
-border:1px solid black;
-padding:20px;
-width:80%;
-}
- .btn{ 
-padding:0!important;
-padding-bottom:0px;
- }
-.glyphicon{ font-size: 10px;
-}
-.wrapper-missing-ingredients{
-max-width: 350px;
-height:30px;
-}
-
-/*-----------------------*/ 
-.recipies-and-ingredients-shown-wrapper{
-margin-left: @filterWidth; 
-}
-.top-block-bar{
-
-margin-left: @filterWidth; 
-}
 
 .search-by-name-outer-block{
-margin-left: @filterWidth; height:100px;
+/*margin-left: @filterWidth; */
+height:100px;
 }
 .sidenav{
 
-height: 100%;
     width: @filterWidth;
-    position: fixed;
+    position: sticky;
+    top:60px;
+	float:left;
     z-index: 1;
-    top: 55px;
     left: 0;
     background-color: @lightGrey;
     overflow-x: hidden;
     padding-top: 20px;
+	
+height: 100%;
 }
 
 .top-block-bar, .search-by-name-outer-block{
@@ -267,4 +94,6 @@ height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
+/*-----style for search bar and dropdown filters------  */ 

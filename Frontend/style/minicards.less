@@ -1,0 +1,86 @@
+
+@darkGrey: #313131;
+@lightGrey: #EDE7E6;
+@darkViolet: #902551;
+@roseLighter: #F3D0CC;
+@roseDarker: #F7D0CB;
+@fontOvo: 'Ovo', serif;
+@fontMuli: 'Muli', sans-serif;
+@filterWidth: 200px;
+
+
+.grid{ 
+min-width:300px;
+width:80%;
+margin : 0 auto;
+  max-width:1200px;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+ /* grid-template-columns:  300px 300px 300px 300px; /*repeat(4, 1fr); */
+  grid-auto-rows: 300px;/*height*/
+    
+}
+ 
+ 
+ .container-img{
+ width:100%;
+ 
+ }
+ .mini-recipe-time{
+  border-radius: 20px;
+  position: absolute; 
+    top: 5px;
+	left:5px;
+	 color: @darkViolet;
+	 width:120px;
+	 padding:2px;
+	/*background: radial-gradient(rgba(0,0,0,0.5) 10%, rgba( 0,0,0,0) 80%);*/
+ }
+ .glyphicon-time{
+ font-size: 40px !important;
+ display:inline;
+ }
+ .mini-recipe-time p{
+ float:right;
+ font-size:26px;
+ }
+ .mini-recipe-rate{
+  border-radius: 25px;
+  position: absolute; 
+    top: 5px;
+	right:5px;
+	 color: #f1f1f1;
+	 width:50px;
+	background: rgba(0, 0, 0, 0.5);  
+ }
+ .mini-recipe-content{
+  position: absolute; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.5);  
+    color: #f1f1f1; 
+    width: 100%; 
+    padding: 20px;  
+	
+	}
+	
+.mini-recipe{
+background-image: url("https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/5/0/RX-FNM_050111-TV-Sweeps-010_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371595337466.jpeg");
+ background-repeat: no-repeat;
+padding-left: 0 !important;
+    padding-right: 0 !important;
+margin:7px;
+
+position: relative; 
+} 
+
+.mini-recipes{ 
+background:blanchedalmond;
+}
+  
+.recipies-and-ingredients-shown-wrapper{ 
+margin-left: @filterWidth; 
+}
+.top-block-bar{
+
+margin-left: @filterWidth; 
+}
