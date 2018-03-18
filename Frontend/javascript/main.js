@@ -1,7 +1,13 @@
-
-
-
-$(document).ready(function(){
+ 
+$(document).ready(function(){   
+ $('.dropdown-menu li').click(function(){
+    // alert($(this).html());  
+              //  alert($(this).text()); 
+   var updatedHtml = $(this).html()+ "<span class='caret'></span>";
+   $('.dropdown-toggle').html(updatedHtml);
+   $('.dropdown-toggle').attr("data-toggle","dropdown");
+});
+ 
 
     $('.messageRegister').click(function () {
 
@@ -14,7 +20,7 @@ $(document).ready(function(){
 
         $('.login-form').show();
         $('.register-form').hide();
-    })
+    });
 
  
 
