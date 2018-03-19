@@ -36,7 +36,7 @@ margin : 0 auto;
 	 padding:2px;
 	/*background: radial-gradient(rgba(0,0,0,0.5) 10%, rgba( 0,0,0,0) 80%);*/
  }
- .glyphicon-time{
+ .glyphicon-time, .glyphicon-thumbs-up, .glyphicon-thumbs-down{
  font-size: 40px !important;
  display:inline;
  }
@@ -44,24 +44,90 @@ margin : 0 auto;
  float:right;
  font-size:26px;
  }
- .mini-recipe-rate{
-  border-radius: 25px;
-  position: absolute; 
+ .mini-recipe-rate{  
+ position: absolute; 
     top: 5px;
-	right:5px;
-	 color: #f1f1f1;
-	 width:50px;
-	background: rgba(0, 0, 0, 0.5);  
+	right:0px; 
+	
  }
+ 
+ 
+.social-like,
+.social-dislike {
+  
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  width: 60px; 
+  color: black;
+  background-color: transparent !important;
+}
+
+.social-like , .social-dislike{ 
+	text-align: left;
+}
+
+.social-like:hover,
+.social-like:focus,
+.social-like:active {
+ color: orange;
+}
+ 
+.social-dislike:hover,
+.social-dislike:focus,
+.social-dislike:active{
+color:red;
+}
+.count{
+ padding: 10px;
+}
+
+.count,
+.dislike {
+
+  /*background-color: #03A9F4;
+  border-radius: 50%;
+  font-size: 12px;*/
+}
+.social-dislike{
+ 
+}
+.dislike {
+  margin-left: -13px;
+}
+
+.count {
+  margin-right: -10px;
+}
+ 
+ 
+  
+ 
+ 
+ 
  .mini-recipe-content{
   position: absolute; 
     bottom: 0; 
     background: rgba(0, 0, 0, 0.5);  
     color: #f1f1f1; 
-    width: 100%; 
-    padding: 20px;  
-	
+    width: 100%; 	
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  padding:0;
+    padding-left: 20px;  	
+    height: 50px;
+	 
 	}
+.mini-recipe-content:hover{
+	height:150px;
+	}
+	 
+ .mini-recipe-content h1{
+	 margin-top:5px;
+	 }
+	
+	
 	
 .mini-recipe{
 background-image: url("https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/5/0/RX-FNM_050111-TV-Sweeps-010_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371595337466.jpeg");
@@ -69,10 +135,15 @@ background-image: url("https://food.fnr.sndimg.com/content/dam/images/food/fulls
 padding-left: 0 !important;
     padding-right: 0 !important;
 margin:7px;
-
+box-shadow: 0 8px 8px 0 rgba(0,0,0,0.7);
+    transition: 0.3s;
 position: relative; 
 } 
 
+ .mini-recipe:hover{
+    box-shadow: 0 16px 16px 0 rgba(55,255,255,0.6);
+	}
+	
 .mini-recipes{ 
 background:blanchedalmond;
 }
