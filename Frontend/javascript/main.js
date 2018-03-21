@@ -1,14 +1,30 @@
- 
-$(document).ready(function(){   
- $('.dropdown-menu li').click(function(){
-    // alert($(this).html());  
-              //  alert($(this).text()); 
-   var updatedHtml = $(this).html()+ "<span class='caret'></span>";
-   $('.dropdown-toggle').html(updatedHtml);
-   $('.dropdown-toggle').attr("data-toggle","dropdown");
+﻿window.onload = function() {
+    if (window.jQuery) {  
+        // jQuery is loaded  
+        alert("Yeah!");
+    } else {
+        // jQuery is not loaded
+        alert("Doesn't Work");
+    }
+}
+$(document).ready(function(){    
+alert("Dd");
+ $('.carousel[data-type="multi"] .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  for (var i=0;i<2;i++) {
+    next=next.next();
+    if (!next.length) {
+    	next = $(this).siblings(':first');
+  	}
+    
+    next.children(':first-child').clone().appendTo($(this));
+  }
 });
- 
-
     $('.messageRegister').click(function () {
 
         $('.login-form').hide();

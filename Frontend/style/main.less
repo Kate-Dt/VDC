@@ -58,12 +58,32 @@ background-size: contain;
  
 }
  
-
-
-.choose-ingredient-block {
-  max-width: 350px;  
+ 
+ #myBtn { 
+    position: fixed;  
+    bottom: 20px;  
+    right: 30px;  
+    z-index: 99;  
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: orange; 
+	opacity:0.7;
+    color: white;  
+    cursor: pointer; 
+    padding: 1%; 
+    border-radius: 10px;  
+    font-size: 18px; 
 }
 
+#myBtn:hover {
+	opacity:1;
+}
+ 
+ 
+ 
+ 
+ 
+ 
 
  
 .btn{
@@ -77,20 +97,6 @@ background-size: contain;
 .search-by-name-outer-block{
 /*margin-left: @filterWidth; */
 height:100px;
-}
-.sidenav{
-
-    width: @filterWidth;
-    position: sticky;
-    top:60px;
-	float:left;
-    z-index: 1;
-    left: 0;
-    background-color: @lightGrey;
-    overflow-x: hidden;
-    padding-top: 20px;
-	
-height: 100%;
 }
 
 .top-block-bar, .search-by-name-outer-block{
@@ -169,4 +175,21 @@ height: 100%;
 /* filters style */
 .sort-recipes-options{
 
+}
+
+//style for saved recipes
+.saved-recipes-button{
+ border: none; /* Remove borders */
+    outline: none; /* Remove outline */ 
+	background:transparent!important; 
+    cursor: pointer; 
+    padding: 1%; 
+    border-radius: 10px; 
+  font-size: 16px;
+	padding:14px;
+} 
+.savedCard{
+width:200px;
+height:100px;
+background:red;
 }
