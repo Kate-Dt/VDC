@@ -1,0 +1,43 @@
+@filterWidth:  200px;
+@lightGrey: #EDE7E6;
+
+ .ingredients-hidden-button{
+ display:none;
+ }
+
+
+
+.choose-ingredient-block{
+
+
+  max-width: 350px;  
+}
+
+.sidenav{
+
+    width: @filterWidth;
+    position: sticky;
+    top:55px;
+	float:left;
+    z-index: 1;
+    left: 0;
+    background-color: @lightGrey;
+    overflow-x: hidden;
+    padding-top: 20px;
+	
+height: 100%;
+}
+
+@media only screen and (max-device-width: 600px) { 
+.ingredients-hidden-button{
+display:inline;
+}
+ .choose-ingredient-block{
+ display: none;
+ }
+ .recipies-and-ingredients-shown-wrapper{
+ margin: 0 auto;
+ width:100%;
+ } 
+ 
+ }

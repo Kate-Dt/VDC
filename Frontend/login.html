@@ -4,6 +4,7 @@
     <meta charset=UTF-8">
     <title>Login</title>
 
+    <link rel="stylesheet/less" type="text/css" href="style/savedRecipes.less" />
     <!-- LESS основний файл -->
     <link rel="stylesheet/less" type="text/css" href="style/logAndReg.less" />
     <!-- LESS JavaScript компілятор -->
@@ -12,8 +13,31 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Muli|Ovo" rel="stylesheet">
+<script>
 
+ window.onload=function(){   
+  //carousel 
+$('.carousel[data-type="multi"] .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+ 
+  for (var i=0;i<4;i++) {
+    next=next.next();
+    if (!next.length) {
+        next = $(this).siblings(':first');
+    }
+     
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
+ 
+ $('#s').load('savedRecipes.html',function(){  }) };
+</script>
 </head>
+
 <body>
 
 <header>
@@ -33,7 +57,9 @@
 
     </div>
 </div>
+<div id="s">
 
+</div>
 <!-- jQuery JavaScript -->
 <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
 
