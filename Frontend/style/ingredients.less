@@ -1,11 +1,37 @@
 @filterWidth:  200px;
 @lightGrey: #EDE7E6;
+@fontOvo: 'Ovo', serif;
 
  .ingredients-hidden-button{
  display:none;
  }
 
 
+/* style for mobile view filter button*/
+.ingredients-hidden-button a{
+color: black;
+
+  font-family: @fontOvo;
+}
+ .ingredients-hidden-button{
+  border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+	position:absolute;	
+	
+	top:0;
+	left:250px;
+    background-color: cyan;  
+    color: black;  
+    cursor: pointer; 
+    padding: 1%;
+    height:50px;	
+	margin:3px;
+    border-radius: 10px;  
+    font-size: 18px;  
+ }
+ .ingredients-hidden-button:hover{
+  background-color:orange;
+ }
 
 .choose-ingredient-block{
 
@@ -30,7 +56,7 @@ height: 100%;
 
 @media only screen and (max-device-width: 600px) { 
 .ingredients-hidden-button{
-display:inline;
+display:block;
 }
  .choose-ingredient-block{
  display: none;
