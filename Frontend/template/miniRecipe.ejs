@@ -1,0 +1,25 @@
+<div class="  mini-recipe">
+    <div class="mini-recipe-time">
+        <span class="glyphicon glyphicon-time"></span>
+        <p ><%= recipe.time%>>min</p>
+    </div>
+
+    <div class="mini-recipe-rate">
+        <button class="social-like">
+            <span class="like glyphicon glyphicon-thumbs-up"></span>
+            <span class="count"><%= recipe.likes%></span>
+        </button>
+        &nbsp;
+        <button class="social-dislike">
+            <span class="like glyphicon glyphicon-thumbs-down"></span>
+            <span class="count"><%= recipe.dislikes%></span>
+        </button>
+
+    </div>
+
+    <div class="mini-recipe-content">
+        <h1><%= recipe.name%></h1>
+        <span class="missing-mini">Missing: <%= recipe.missing%></span>
+        <p><%= recipe.snippet%></p>
+    </div>
+</div>

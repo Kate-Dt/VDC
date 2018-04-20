@@ -1,0 +1,30 @@
+{
+  "name": "vdc",
+  "version": "1.0.0",
+  "description": "VooDooCook website for recipe search",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kate-Dt/VDC.git"
+  },
+  "keywords": [
+    "recipes",
+    "cooking",
+    "search"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kate-Dt/VDC/issues"
+  },
+  "homepage": "https://github.com/Kate-Dt/VDC#readme",
+  "dependencies": {
+    "ejs": "^2.5.9",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  }
+}
