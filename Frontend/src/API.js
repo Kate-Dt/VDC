@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080";
+const API_URL = __dirname;
 
 function backendGet(url, data, callback) {
     $.getJSON(url,data,callback);
