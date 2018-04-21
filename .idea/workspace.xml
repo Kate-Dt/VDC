@@ -83,7 +83,6 @@
           </provider>
         </entry>
       </file>
-        <entry file="file://$PROJECT_DIR$/Frontend/index.html">
       <file leaf-file-name="mainPage.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Backend/views/mainPage.ejs">
           <provider selected="true" editor-type-id="text-editor">
