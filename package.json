@@ -23,8 +23,15 @@
   },
   "homepage": "https://github.com/Kate-Dt/VDC#readme",
   "dependencies": {
+    "brfs": "^1.6.1",
     "ejs": "^2.5.9",
     "express": "^4.16.3",
     "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "frunt": "^0.3.3",
+    "grunt": "^1.0.2",
+    "grunt-browserify": "^5.3.0",
+    "grunt-contrib-watch": "^1.0.1"
   }
 }

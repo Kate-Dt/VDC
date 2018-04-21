@@ -4,8 +4,11 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 
 function configureEndpoints(app) {
+    console.log("Configuring endpoints...");
     var pages = require('./pages');
     var api = require('./api');
+
+    app.get('/api/get-recipes-list/', api.getRecipesList);
 
     //Сторінки
     //Головна сторінка
@@ -16,6 +19,7 @@ function configureEndpoints(app) {
 }
 
 function startServer(port) {
+    console.log("Starting server...");
     //Створюється застосунок
     var app = express();
 
