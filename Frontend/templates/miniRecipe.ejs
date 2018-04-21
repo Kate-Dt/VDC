@@ -1,8 +1,10 @@
-<div class="  mini-recipe">
+<div class="mini-recipe" id="<%=recipe.id%>" style="background-image: url(<%=recipe.image%>">
+    <% if(recipe.time>0){%>
     <div class="mini-recipe-time">
         <span class="glyphicon glyphicon-time"></span>
-        <p ><%= recipe.time%>>min</p>
+        <p><%= recipe.time%>min</p>
     </div>
+    <% }%>
 
     <div class="mini-recipe-rate">
         <button class="social-like">
@@ -19,7 +21,9 @@
 
     <div class="mini-recipe-content">
         <h1><%= recipe.name%></h1>
+        <% if(recipe.missing){%>
         <span class="missing-mini">Missing: <%= recipe.missing%></span>
+        <% } %>
         <p><%= recipe.snippet%></p>
     </div>
 </div>
