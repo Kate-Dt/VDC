@@ -10,12 +10,12 @@ function showRecipesList(list,page){
 }
 
 function initRecipesMenu(){
-    RecipesList = API.getRecipesList(function(err,server_data){
-        if(err) {
+    RecipesList = API.getRecipesList("myrequest",function(data,respond){
+        if(!data||!respond) {
             alert("Unable to get Recipes List!");
-            return callback(err);
+            return callback(data);
         }
-        RecipesList = server_data;
+        RecipesList = data;
         curPage = 0;
         numOfPages = RecipesList.length/onePageNum;
         showRecipesList(RecipesList);

@@ -2,7 +2,6 @@
 const API_URL = "http://localhost:8080";
 
 function backendGet(url, data, callback) {
-    console.log("X3");
     $.getJSON(url,data,callback);
 }
 
@@ -22,7 +21,6 @@ function backendPost(url, data, callback) {
 }
 
 exports.getRecipesList = function(request, callback) {
-    console.log("X3");
     backendGet(API_URL+"/api/get-recipes-list/",request, callback);
 };
 },{}],2:[function(require,module,exports){
@@ -65,12 +63,14 @@ function showRecipesList(list,page){
 }
 
 function initRecipesMenu(){
-    RecipesList = API.getRecipesList(function(err,server_data){
-        if(err) {
+    RecipesList = API.getRecipesList({myrequest:1},function(data,respond){
+        if(!data||!respond) {
             alert("Unable to get Recipes List!");
-            return callback(err);
+            return callback(data);
         }
-        RecipesList = server_data;
+        console.log(data);
+        alert(data);
+        RecipesList = data;
         curPage = 0;
         numOfPages = RecipesList.length/onePageNum;
         showRecipesList(RecipesList);

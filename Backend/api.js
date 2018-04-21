@@ -1,3 +1,4 @@
 exports.getRecipesList = function(req,res){
-    res.send({id:1});
+    var query = req.query;
+    res.send(query);
 };
