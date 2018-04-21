@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head >
+    <meta charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VDCook</title>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet/less" type="text/css" href="assets/style/main.less" />
+    <link rel="stylesheet/less" type="text/css" href="assets/style/minicards.less" />
+    <link rel="stylesheet/less" type="text/css" href="assets/style/ingredients.less" />
+    <link rel="stylesheet/less" type="text/css" href="assets/style/savedRecipes.less" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--Bootstrap CSS
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Bootstrap JavaScript
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Muli|Ovo" rel="stylesheet">
+
+    <script type="text/javascript"  src="assets/js/main.js"> </script>
+
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-inverse" role="navigation">
+
+        <div class="navbar-header" /*style="text-align: center"*/>
+
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+
+        <a style="color:white; font-size:40px; ">VooDooCook</a>
+
+        <!-- button that appears in mobile view instead of side-nav.-->
+        <button class="dropdown-toggle ingredients-hidden-button " type="button" data-toggle="dropdown"><a href="#">Ingredients</a>
+            <span class="caret"></span></button>
+
+        <div class ="dropdown-menu ingredients-hidden"id="savedRecipesHtml"  >
+            ingredients
+        </div>
+
+
+
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <!-- navbar for additional buttons-->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about"><span style="font-size: 150%;" class="glyphicon glyphicon-user"></span>login</a></li>
+            </ul>
+            <!--button of saved recipes, hides for mobile version with navbar -->
+            <button class="dropdown-toggle saved-recipes-button" type="button" data-toggle="dropdown">
+                <span style="font-size: 150%;" class="glyphicon glyphicon-star"></span>saved<span class="caret"></span></button>
+
+            <div class ="dropdown-menu saved-recipes" id="savedRecipesHtml">
+                <!-- div for list of saved recipes-->
+                <div class="text-center"><h3>Saved</h3></div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </nav>
+</header>
+
+<div class="search-by-name-outer-block">
+    <a href="" id="open-filters-button" class="btn" >filters</a>
+    <form class="search-by-name-form ">
+        <div class="container-4">
+            <input type="search" id="search name-search-field col-xs-6" name="recipe-name" placeholder="Find recipe by name"></input>
+            <!--  <a href="#" id="name-submit-button">
+                  <span class="glyphicon glyphicon-search"></span>
+              </a>-->
+            <button class="icon"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+    </form>
+</div>
+
+<div class="main">
+
+    <div class="top-block-bar ">
+        <div class="choose-title-bar">
+            <h2 id="choose-title">Choose ingredients</h2>
+        </div>
+        <div class="sort-recipies-bar">
+            <div class="sort-recipies-menu">
+                <!--drop down menu here-->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle buttonGeneralFilters" data-toggle="dropdown">
+                        Filter <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu buttonGeneralFiltersMenu" role="menu">
+                        <li><a href="#">Vegetarian</a></li>
+                        <li><a href="#">Diet</a></li>
+                        <li><a href="#">Sugar-free</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">reset</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<form class="choose-ingredient-block sidenav">
+    <div class="search-ingredients-field">
+        <input id="search-ingredient-input" type="text" name="find ingredient"
+               placeholder="enter ingredient">
+        <a href="#" id="ingredient-submit-button">
+            <span class="glyphicon glyphicon-search"></span>
+        </a>
+    </div>
+
+    <!--filters (example for template)-->
+    <div class="filter-1-wrapper">
+        <p class="filter-name">Filter</p>
+        <!--hide form-control before click on "filter-name"-->
+        <form class="filter-options">
+            <div class="checkbox">
+                <label><input type="checkbox" value="" checked>Option 1</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="">Option 2</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="">Option 3</label>
+            </div>
+        </form>
+    </div>
+
+</form>
+
+
+<div class="recipies-and-ingredients-shown-wrapper">
+    <!--button fixed, scroll to top-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!--chosen ingredients added here-->
+    <div class="chosen-ingredients">
+    </div>
+
+    <!--recipes here-->
+    <div class="mini-recipes">
+        <div class="grid" id="recipes_list">
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--Bootstrap JavaScript-->
+
+
+</body>
+
+<!--&lt;!&ndash; jQuery JavaScript &ndash;&gt;-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--Own JavaScript -->
+
+
+<!-- jQuery JavaScript
+<script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>-->
+
+</html>
