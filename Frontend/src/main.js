@@ -5,6 +5,7 @@ $(function () {
     var RecipesMenu = require("./RecipesMenu");
     var SignIn = require("./SignIn");
 
+    SignIn.initClient();
     RecipesMenu.initRecipesMenu();
     MainPageAnimations.initAnimations();
 }); 

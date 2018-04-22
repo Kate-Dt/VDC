@@ -97,17 +97,37 @@ function showOneRecipe(recipe){
 
 exports.initRecipesMenu = initRecipesMenu;
 },{"./API":1,"./Templates":5}],4:[function(require,module,exports){
+var auth2;
+var user;
 var profile;
-function onSignIn(googleUser) {
-    profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
+var initClient = function() {
+    gapi.load('auth2', function(){
+        auth2 = gapi.auth2.init({
+            client_id: '836115278484-j879fhs956rgnuuoqsq6ie7nqs7n53gf.apps.googleusercontent.com'
+        });
+        auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
+    });
+};
+var onSuccess = function(guser) {
+    user = guser;
+    profile = user.getBasicProfile();
+    console.log('Signed in as ' + profile.getName());
+};
+var onFailure = function(error) {
+    console.log(error);
+};
 
-exports.onSignIn = onSignIn;
-exports.profile = profile;
+var getUser = function(){
+    return user;
+};
+
+var getProfile = function(){
+    return profile;
+};
+
+exports.initClient = initClient;
+exports.getUser = getUser;
+exports.getProfile = getProfile;
 },{}],5:[function(require,module,exports){
 
 var ejs = require("ejs");
@@ -121,6 +141,7 @@ $(function () {
     var RecipesMenu = require("./RecipesMenu");
     var SignIn = require("./SignIn");
 
+    SignIn.initClient();
     RecipesMenu.initRecipesMenu();
     MainPageAnimations.initAnimations();
 }); 
