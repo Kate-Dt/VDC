@@ -64,11 +64,17 @@ var filter;
 var sort;
 
 function initRecipesMenu(){
+    $('#search-by-name-form').on('submit', function(e){
+        e.preventDefault();
+        var value = ($(this).serialize());
+        console.log(value);
+        findRecipesList(value);
+    });
     findRecipesList();
 }
 
-function findRecipesList(){
-    RecipesList = API.getRecipesList("myrequest",function(data,respond){
+function findRecipesList(request){
+    RecipesList = API.getRecipesList(request,function(data,respond){
         if(!data||!respond) {
             alert("Unable to get Recipes List!");
             return callback(data);
@@ -82,6 +88,7 @@ function findRecipesList(){
 }
 
 function showRecipesList(list,page){
+    $recipes_list.empty();
     var first = (curPage-1)*onePageNum;
     var last = curPage*onePageNum;
     for(var i = first; i < last && i < list.length; i++){
@@ -159,7 +166,7 @@ exports.miniRecipe = ejs.compile("<div class=\"mini-recipe\" id=\"<%=recipe.id%>
 
 (function($){
 $.fn.easyPaginate = function (options) {
-    console.log(options);
+    console.log("pagination:",options);
     var defaults = {
         paginateElement: 'li',
         hashPage: 'page',
@@ -367,7 +374,6 @@ $.fn.easyPaginate = function (options) {
 })(jQuery);
 
 },{}],7:[function(require,module,exports){
-
 $(function () {
     console.log("X3");
     var MainPageAnimations =  require("./MainPageAnimations");

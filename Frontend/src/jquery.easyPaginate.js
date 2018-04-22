@@ -23,7 +23,7 @@
 
 (function($){
 $.fn.easyPaginate = function (options) {
-    console.log(options);
+    console.log("pagination:",options);
     var defaults = {
         paginateElement: 'li',
         hashPage: 'page',

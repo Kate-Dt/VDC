@@ -9,11 +9,17 @@ var filter;
 var sort;
 
 function initRecipesMenu(){
+    $('#search-by-name-form').on('submit', function(e){
+        e.preventDefault();
+        var value = ($(this).serialize());
+        console.log(value);
+        findRecipesList(value);
+    });
     findRecipesList();
 }
 
-function findRecipesList(){
-    RecipesList = API.getRecipesList("myrequest",function(data,respond){
+function findRecipesList(request){
+    RecipesList = API.getRecipesList(request,function(data,respond){
         if(!data||!respond) {
             alert("Unable to get Recipes List!");
             return callback(data);
@@ -27,6 +33,7 @@ function findRecipesList(){
 }
 
 function showRecipesList(list,page){
+    $recipes_list.empty();
     var first = (curPage-1)*onePageNum;
     var last = curPage*onePageNum;
     for(var i = first; i < last && i < list.length; i++){
