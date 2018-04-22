@@ -96,25 +96,38 @@ function showOneRecipe(recipe){
 }
 
 exports.initRecipesMenu = initRecipesMenu;
-},{"./API":1,"./Templates":4}],4:[function(require,module,exports){
+},{"./API":1,"./Templates":5}],4:[function(require,module,exports){
+var profile;
+function onSignIn(googleUser) {
+    profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+exports.onSignIn = onSignIn;
+exports.profile = profile;
+},{}],5:[function(require,module,exports){
 
 var ejs = require("ejs");
 
 exports.miniRecipe = ejs.compile("<div class=\"mini-recipe\" id=\"<%=recipe.id%>\" style=\"background-image: url(<%=recipe.image%>\">\r\n    <% if(recipe.time>0){%>\r\n    <div class=\"mini-recipe-time\">\r\n        <span class=\"glyphicon glyphicon-time\"></span>\r\n        <p><%= recipe.time%>min</p>\r\n    </div>\r\n    <% }%>\r\n\r\n    <div class=\"mini-recipe-rate\">\r\n        <button class=\"social-like\">\r\n            <span class=\"like glyphicon glyphicon-thumbs-up\"></span>\r\n            <span class=\"count\"><%= recipe.likes%></span>\r\n        </button>\r\n        &nbsp;\r\n        <button class=\"social-dislike\">\r\n            <span class=\"like glyphicon glyphicon-thumbs-down\"></span>\r\n            <span class=\"count\"><%= recipe.dislikes%></span>\r\n        </button>\r\n\r\n    </div>\r\n\r\n    <div class=\"mini-recipe-content\">\r\n        <h1><%= recipe.name%></h1>\r\n        <% if(recipe.missing){%>\r\n        <span class=\"missing-mini\">Missing: <%= recipe.missing%></span>\r\n        <% } %>\r\n        <p><%= recipe.snippet%></p>\r\n    </div>\r\n</div>");
-},{"ejs":7}],5:[function(require,module,exports){
+},{"ejs":8}],6:[function(require,module,exports){
 
 $(function () {
     console.log("X3");
     var MainPageAnimations =  require("./MainPageAnimations");
     var RecipesMenu = require("./RecipesMenu");
+    var SignIn = require("./SignIn");
 
     RecipesMenu.initRecipesMenu();
     MainPageAnimations.initAnimations();
 }); 
 
-},{"./MainPageAnimations":2,"./RecipesMenu":3}],6:[function(require,module,exports){
+},{"./MainPageAnimations":2,"./RecipesMenu":3,"./SignIn":4}],7:[function(require,module,exports){
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1025,7 +1038,7 @@ if (typeof window != 'undefined') {
   window.ejs = exports;
 }
 
-},{"../package.json":9,"./utils":8,"fs":6,"path":10}],8:[function(require,module,exports){
+},{"../package.json":10,"./utils":9,"fs":7,"path":11}],9:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1191,7 +1204,7 @@ exports.cache = {
   }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports={
   "_from": "ejs@^2.5.9",
   "_id": "ejs@2.5.9",
@@ -1273,7 +1286,7 @@ module.exports={
   "version": "2.5.9"
 }
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -1501,7 +1514,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":11}],11:[function(require,module,exports){
+},{"_process":12}],12:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -1687,4 +1700,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[5]);
+},{}]},{},[6]);

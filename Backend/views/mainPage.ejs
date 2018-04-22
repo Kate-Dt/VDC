@@ -7,7 +7,10 @@
     <meta charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="836115278484-lu268nm3dn2rt24mi98ihlsfpfcr2gs6.apps.googleusercontent.com">
     <title>VDCook</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -30,7 +33,6 @@
     <link href="https://fonts.googleapis.com/css?family=Muli|Ovo" rel="stylesheet">
 
     <script type="text/javascript"  src="assets/js/main.js"> </script>
-
 </head>
 
 <body>
@@ -63,8 +65,8 @@
 
         <div class="navbar-collapse collapse">
             <!-- navbar for additional buttons-->
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#about"><span style="font-size: 150%;" class="glyphicon glyphicon-user"></span>login</a></li>
+            <ul class="nav navbar-nav navbar-right" >
+                <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
             </ul>
             <!--button of saved recipes, hides for mobile version with navbar -->
             <button class="dropdown-toggle saved-recipes-button" type="button" data-toggle="dropdown">
