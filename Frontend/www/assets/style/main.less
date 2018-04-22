@@ -6,6 +6,7 @@
 @fontOvo: 'Ovo', serif;
 @fontMuli: 'Muli', sans-serif;
 @filterWidth: 200px;
+@maxWidth: 2000px;
 
 header{
   position: fixed;
@@ -17,12 +18,17 @@ header{
   background-color: @darkGrey;
   color: @lightGrey;
   font-family: @fontOvo;
+  max-width: @maxWidth;
 }
 
 .header-title{
   line-height: 35%;
   margin-left: 40%;
   max-width:200px;
+}
+#wrapEverything{
+margin:    0 auto;
+max-width: @maxWidth;
 }
 .navbar{
 border: none !important;
