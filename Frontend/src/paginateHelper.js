@@ -1,6 +1,6 @@
   $('#recipes_list').easyPaginate({
         paginateElement: 'div',
-        elementsPerPage: 6,
+        elementsPerPage: 3,
         effect: 'fade'
-    });
-alert("as");
+ 
+  }); 
