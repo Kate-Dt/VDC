@@ -68,9 +68,9 @@
         <div class="navbar-collapse collapse">
             <!-- navbar for additional buttons-->
             <ul class="nav navbar-nav navbar-right" >
-
+ 
                 <li><div class="g-signin2" id="signin-button" data-onsuccess="onSignIn"></div></li>
-
+ 
             </ul>
             <!--button of saved recipes, hides for mobile version with navbar -->
             <button class="dropdown-toggle saved-recipes-button" type="button" data-toggle="dropdown">
@@ -93,10 +93,15 @@
 
 <div class="search-by-name-outer-block">
     <a href="" id="open-filters-button" class="btn" >filters</a>
-    <form class="search-by-name-form ">
+    <form id="search-by-name-form">
         <div class="container-4">
+
             <input type="search" id="search name-search-field col-xs-6" name="recipe-name" placeholder="Find recipe by name"></input>
-                      <button class="icon"><i class="glyphicon glyphicon-search"></i></button>
+            <button class="icon"><i class="glyphicon glyphicon-search"></i></button>
+<!--
+            <input type="text" name="name" id="name-search-field" placeholder="Find recipe by name"/>
+            <button type="submit" class="icon"><i class="glyphicon glyphicon-search"></i></button>
+-->
         </div>
     </form>
 </div>
@@ -252,9 +257,10 @@
 <!--Bootstrap JavaScript-->
 
 </div>
-</body>
+</body> 
 <script type="text/javascript" src="../../Frontend/src/jquery.easyPaginate.js"></script>
  <!--&lt;!&ndash; jQuery JavaScript &ndash;&gt;-->
+ 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <!--Own JavaScript -->
 
