@@ -21,6 +21,7 @@
     <link rel="stylesheet/less" type="text/css" href="assets/style/chosen.less" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--Bootstrap CSS
@@ -95,20 +96,17 @@
     <form class="search-by-name-form ">
         <div class="container-4">
             <input type="search" id="search name-search-field col-xs-6" name="recipe-name" placeholder="Find recipe by name"></input>
-            <!--  <a href="#" id="name-submit-button">
-                  <span class="glyphicon glyphicon-search"></span>
-              </a>-->
-            <button class="icon"><i class="glyphicon glyphicon-search"></i></button>
+                      <button class="icon"><i class="glyphicon glyphicon-search"></i></button>
         </div>
     </form>
 </div>
 
 <div class="main">
-
+<!--DIV FOR FILTERS -->
     <div class="top-block-bar ">
-        <div class="choose-title-bar">
+       <!-- <div class="choose-title-bar">
             <h2 id="choose-title">Choose ingredients</h2>
-        </div>
+        </div>-->
         <div class="sort-recipies-bar">
             <div class="sort-recipies-menu">
                 <!--drop down menu here-->
@@ -132,46 +130,88 @@
 </div>
 
 
-<div class="choose-ingredient-block sidenav">
-    <div class="search-ingredients-field">
-        <input id="search-ingredient-input" type="text" name="find ingredient"
-               placeholder="enter ingredient">
+<form class="choose-ingredient-block sidenav">
+       <div class="search-ingredients-field">
+
+       <input id="search-ingredient-input" type="text" name="find ingredient"
+               placeholder="find ingredient">
         <a href="#" id="ingredient-submit-button">
-            <span class="glyphicon glyphicon-search"></span>
+            <button class="iconIngFind"><i class="glyphicon glyphicon-search"></i></button>
         </a>
     </div>
-<div>
+    <!--submit -->
+    <button class="btnFind">Find!</button>
+
+    <div>
     <!--list of categories hardcoded (can be opened to see what items are inside) -->
         <ul class="nav" id="listCategories">
             <li>
-        <button class="dropdown-btn">Dropdown
+
+
+                <!-- Example of one category-->
+        <button class="dropdown-btn">example
             <i class="fa fa-caret-down"></i>
         </button>
-        <div class="dropdown-container">
-            <div class="ingredient">Link 1</div>
-            <div class="ingredient">Link 2</div>
-            <div class="ingredient">Link 3</div>
+        <div class="dropdown-container" id="listInOneCategory">
+            <!--One ingridient with metrics -->
+            <div class="ingredient">
+                <!--CheckBox -->
+
+                <input type="checkbox"  name="ingredient" value="includeThisIngredient">
+                <!-- name of ingredient-->
+                Link
+                <!--How much?-->
+                <input id="number" type="number" style=" width: 50px;">
+                <!--Metrics -->
+                <select name="metrics" id="metrics">
+                    <option value="gr">Kg</option>
+                    <option value="kg">Gm</option>
+                    <option value="ml">L</option>
+                     <option value="l">Ml</option>
+                </select>
+            </div>
+          <!-- another ingredient-->
+            <div class="ingredient">
+                <input type="checkbox"  name="ingredient" value="includeThisIngredient">
+                <!-- name of ingredient-->
+                Link
+                <!--How much?-->
+                <input id="number" type="number" style=" width: 50px;">
+                <!--Metrics -->
+                <select name="metrics" id="metrics">
+                    <option value="gr">Kg</option>
+                    <option value="kg">Gm</option>
+                    <option value="ml">L</option>
+                    <option value="l">Ml</option>
+                </select>
+            </div>
+            <!-- another ingredient-->
+            <div class="ingredient">
+                <input type="checkbox"  name="ingredient" value="includeThisIngredient">
+                <!-- name of ingredient-->
+                Link
+                <!--How much?-->
+                <input id="number" type="number" style=" width: 50px;">
+                <!--Metrics -->
+                <select name="metrics" id="metrics">
+                    <option value="gr">Kg</option>
+                    <option value="kg">Gm</option>
+                    <option value="ml">L</option>
+                    <option value="l">Ml</option>
+                </select>
+            </div>
         </div>
             </li>
-            <li>
-                <button class="dropdown-btn">Dropdown4
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-container">
-                </div>
-            </li>
-
-
 
 </ul>
 
 </div>
-</div>
+</form>
 
 
 <div class="recipies-and-ingredients-shown-wrapper">
     <!--button fixed, scroll to top-->
-    <button onclick="topF()" id="myBtn" title="Go to top">Top</button>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
     <!--chosen ingredients added here-->
 
@@ -219,16 +259,23 @@
 <!--Own JavaScript -->
 
 <script>
-    function writeCategories(){
+
+    function writeCategories() {
+
+        var names = ['Drink', 'Flavoring', 'Mixture', 'Dairy', 'Main protein',
+            'Meat', 'Grain', 'Nut', 'Sauce', 'Fastener', 'Condiment', 'Soup',
+            'Fat and vitamins', 'Cooking fat', 'Sugar', 'Alcoholic', 'Baking ingredient',
+            'Cooking liquid', 'Wrapped meal', 'Spice or herb', 'Vegetable', 'Poultry',
+            'Seafood', 'Fruit', 'Recipe extra', 'Spicy', 'Cheese'];
+        for (var i = 0; i < names.length; i++) {
+
         var li = document.createElement('li');
-        var name = "Dairy";
+        var txt = '<button class="dropdown-btn">' + names[i] + '<i class="fa fa-caret-down"></i></button><div class="dropdown-container"></div>';
 
-
-        var txt=  '<button class="dropdown-btn">'+name+'<i class="fa fa-caret-down"></i></button><div class="dropdown-container"></div>';
-
-        li.innerHTML = txt ;
-       // alert(li.innerHTML);
+        li.innerHTML = txt;
+        // alert(li.innerHTML);
         $("#listCategories").append(li);
+          }
 
     };
     writeCategories();

@@ -1,4 +1,4 @@
-@filterWidth:  200px;
+@filterWidth:  300px;
 @lightGrey: #EDE7E6;
 @fontOvo: 'Ovo', serif;
 
@@ -6,7 +6,9 @@
  display:none;
  }
 
-
+#listInOneCategory{
+ padding:0;
+}
 /* style for mobile view filter button*/
 .ingredients-hidden-button a{
 color: black;
@@ -50,10 +52,9 @@ color: black;
     background-color: @lightGrey;
     overflow-x: hidden;
     padding-top: 20px;
-
+margin-top:40px;
 height: 100%;
 }
-
 
 .sidenav .ingredient, .dropdown-btn {
 
@@ -69,12 +70,32 @@ height: 100%;
   cursor: pointer;
   outline: none;
 }
-#listCategories li:hover{
-  background-color: #6cba5a;
-}
 .sidenav .ingredient:hover   {
   background-color: #ffc158;
+
+  padding: 0!important;
 }
+
+.ingredient{
+  border-radius: 5px!important;
+    border: none;
+  padding: 0!important;
+
+}
+.dropdown-btn{
+  border-radius: 5px!important;
+  border: none;
+}
+
+
+
+
+#listCategories li button:hover:not(.active){
+  color: #6cba5a;
+  border-radius: 5px!important;
+
+}
+
 
 /* Main content */
 .main {
@@ -92,10 +113,10 @@ height: 100%;
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: none;
-  background-color: #262626;
+  background-color: #d6d0cf;
   padding-left: 8px;
 
-height:200px;
+max-height:200px;
   overflow-y:scroll ;
 }
 
@@ -103,20 +124,101 @@ height:200px;
 .fa-caret-down {
   float: right;
   padding-right: 8px;
+  width:10px;
+  font-size: 10px;
+  height:10px;
+}
+
+
+.search-ingredients-field{
+
+  overflow: hidden;
+  width: @filterWidth;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.search-ingredients-field input {
+  width: @filterWidth;
+  height: 50px;
+  background: #2b303b;
+
+  background: blanchedalmond;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: grey;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+}
+.iconIngFind{
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border-radius: 5px;
+
+  border: none;
+  background: #232833;
+  height: 50px;
+  width: 50px;
+  color: #4f5b66;
+
+  font-size: 10pt;
+  outline: none;
+  margin-left: -50px;
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+.iconIngFind:hover{
+  background: #902551;
+}
+//style for FIND button
+.btnFind {
+
+  border: 0;
+  box-shadow: none;
+  background: #902551;
+   background-image: -webkit-linear-gradient(top, #a82f4d, #d49f35);
+  background-image: -moz-linear-gradient(top, #a82f4d, #d49f35);
+  background-image: -ms-linear-gradient(top, #a82f4d, #d49f35);
+  background-image: -o-linear-gradient(top, #a82f4d, #d49f35);
+  background-image: linear-gradient(to bottom, #a82f4d, #d49f35);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 40px;
+  padding: 10px 20px 10px 20px;
+//  text-align: center;
+  margin: 10px;
+  margin-left:  @filterWidth/2 - 65;
+  top:0;
+  text-decoration: none;
+}
+
+.btnFind:hover {
+  background: #34d9ad;
+  background-image: -webkit-linear-gradient(top, #34d9ad, #682bb8);
+  background-image: -moz-linear-gradient(top, #34d9ad, #682bb8);
+  background-image: -ms-linear-gradient(top, #34d9ad, #682bb8);
+  background-image: -o-linear-gradient(top, #34d9ad, #682bb8);
+  background-image: linear-gradient(to bottom, #34d9ad, #682bb8);
+
+  text-decoration: none;
 }
 
 
 
 
 
-.toggle-custom {
-  position: absolute !important;
-  top: 0;
-  right: 0;
-}
-.toggle-custom[aria-expanded='true'] .glyphicon-plus:before {
-  content: "\2212";
-}
 
 
 @media only screen and (max-device-width: 600px) { 
