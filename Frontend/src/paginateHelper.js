@@ -2,4 +2,5 @@
         paginateElement: 'div',
         elementsPerPage: 3,
         effect: 'fade'
-  });
+ 
+  }); 

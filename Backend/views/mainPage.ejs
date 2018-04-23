@@ -35,13 +35,12 @@
 
     <script type="text/javascript"  src="assets/js/main.js"> </script>
 </head>
-
-<body>
+ <body>
 <div id="wrapEverything">
 <header>
     <nav class="navbar navbar-inverse" role="navigation">
 
-        <div class="navbar-header" /*style="text-align: center"*/>
+        <div class="navbar-header" > <!--/*style="text-align: center"*/>-->
 
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -68,11 +67,13 @@
         <div class="navbar-collapse collapse">
             <!-- navbar for additional buttons-->
             <ul class="nav navbar-nav navbar-right" >
+ 
                 <li><div class="g-signin2" id="signin-button" data-onsuccess="onSignIn"></div></li>
+ 
             </ul>
             <!--button of saved recipes, hides for mobile version with navbar -->
             <button class="dropdown-toggle saved-recipes-button" type="button" data-toggle="dropdown">
-                <span style="font-size: 150%;" class="glyphicon glyphicon-star"></span>saved<span class="caret"></span></button>
+                <span style="color:#ffc158;" class="glyphicon glyphicon-star"></span><span class="caret"></span></button>
 
             <div class ="dropdown-menu saved-recipes" id="savedRecipesHtml">
                 <!-- div for list of saved recipes-->
@@ -128,7 +129,7 @@
 </div>
 
 
-<form class="choose-ingredient-block sidenav">
+<div class="choose-ingredient-block sidenav">
     <div class="search-ingredients-field">
         <input id="search-ingredient-input" type="text" name="find ingredient"
                placeholder="enter ingredient">
@@ -136,30 +137,38 @@
             <span class="glyphicon glyphicon-search"></span>
         </a>
     </div>
+<div>
+    <!--list of categories hardcoded (can be opened to see what items are inside) -->
+        <ul class="nav" id="listCategories">
+            <li>
+        <button class="dropdown-btn">Dropdown
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <div class="ingredient">Link 1</div>
+            <div class="ingredient">Link 2</div>
+            <div class="ingredient">Link 3</div>
+        </div>
+            </li>
+            <li>
+                <button class="dropdown-btn">Dropdown4
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                </div>
+            </li>
 
-    <!--filters (example for template)-->
-    <div class="filter-1-wrapper">
-        <p class="filter-name">Filter</p>
-        <!--hide form-control before click on "filter-name"-->
-        <form class="filter-options">
-            <div class="checkbox">
-                <label><input type="checkbox" value="" checked>Option 1</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="">Option 2</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="">Option 3</label>
-            </div>
-        </form>
-    </div>
 
-</form>
+
+</ul>
+
+</div>
+</div>
 
 
 <div class="recipies-and-ingredients-shown-wrapper">
     <!--button fixed, scroll to top-->
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <button onclick="topF()" id="myBtn" title="Go to top">Top</button>
 
     <!--chosen ingredients added here-->
 
@@ -200,12 +209,48 @@
 <!--Bootstrap JavaScript-->
 
 </div>
-</body>
-<!--&lt;!&ndash; jQuery JavaScript &ndash;&gt;-->
+</body> 
+<script type="text/javascript" src="../../Frontend/src/jquery.easyPaginate.js"></script>
+ <!--&lt;!&ndash; jQuery JavaScript &ndash;&gt;-->
+ 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <!--Own JavaScript -->
 
+<script>
+    function writeCategories(){
+        var li = document.createElement('li');
+        var name = "Dairy";
 
+
+        var txt=  '<button class="dropdown-btn">'+name+'<i class="fa fa-caret-down"></i></button><div class="dropdown-container"></div>';
+
+        li.innerHTML = txt ;
+       // alert(li.innerHTML);
+        $("#listCategories").append(li);
+
+    };
+    writeCategories();
+
+
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+            //$('body').scrollTo(dropdown[i]);
+        });
+    }
+
+
+</script>
 <!-- jQuery JavaScript
 <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>-->
 
