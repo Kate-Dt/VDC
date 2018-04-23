@@ -22,6 +22,7 @@
 */
 
 (function($){
+
 $.fn.easyPaginate = function (options) {
     var defaults = {
         paginateElement: 'li',

@@ -3,3 +3,4 @@
         elementsPerPage: 6,
         effect: 'fade'
     });
+alert("as");
