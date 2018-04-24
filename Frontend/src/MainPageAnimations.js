@@ -20,11 +20,12 @@ function initAnimations(){
 
 
     };
-
-    function topFunction(){
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        return false;
-    };
 }
 
+function topFunction(){
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+};
+
 exports.initAnimations = initAnimations;
+exports.topFunction = topFunction;

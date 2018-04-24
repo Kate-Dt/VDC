@@ -27,8 +27,11 @@ exports.getRecipesList = function(request, callback) {
 }).call(this,"/..")
 },{}],2:[function(require,module,exports){
 function initAnimations(){
+    function writeCategories(){
+        alert ("ddsdsds");
+    };
     window.onload=function(){
-
+        writeCategories();
         $('.dropdown-menu').click(function(event){
             event.stopPropagation();
         });//for dropdown not to close on click
@@ -43,15 +46,17 @@ function initAnimations(){
             $('.buttonGeneralFilters').attr("data-toggle","dropdown");
         });
 
-    };
 
-    function topFunction(){
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        return false;
     };
 }
 
+function topFunction(){
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+};
+
 exports.initAnimations = initAnimations;
+exports.topFunction = topFunction;
 },{}],3:[function(require,module,exports){
 var API = require("./API");
 var Templates = require("./Templates");
@@ -165,6 +170,7 @@ exports.miniRecipe = ejs.compile("<div class=\"mini-recipe\" id=\"<%=recipe.id%>
 */
 
 (function($){
+
 $.fn.easyPaginate = function (options) {
     console.log("pagination:",options);
     var defaults = {
@@ -392,7 +398,9 @@ $(function () {
         paginateElement: 'div',
         elementsPerPage: 3,
         effect: 'fade'
-  });
+ 
+  }); 
+
 },{}],9:[function(require,module,exports){
 
 },{}],10:[function(require,module,exports){

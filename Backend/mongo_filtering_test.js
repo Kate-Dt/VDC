@@ -45,7 +45,7 @@ db.once('open', function callback() {
         ingredient: "mozzarella cheese",
         amount: 200
     }, {ingredient: "pizza sauce", amount: 400}];
-    qry = createQuery(q, 3);
+    qry = createQuery(q, 1);
     console.log(qry["$nor"][0]['ingredients']['$elemMatch']['ingredient'])
     //console.log(qry["$nor"][1]['ingredients']['$elemMatch']['amount'])//[0]["ingredients"]);
 
