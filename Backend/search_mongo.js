@@ -29,8 +29,6 @@ db.once('open', function callback() {
     exports.queryRecipes = query;
 
 });
-
-
 //@args
 //ingredients - List of objects with @fields
 //  ingredient - name of the ingredient
