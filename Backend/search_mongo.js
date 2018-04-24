@@ -22,14 +22,13 @@ db.once('open', function callback() {
 
     var recipeModel = mongoose.model('recipeModel', recipeSchema);
 
-    function query(ingredients, servingsNum) {
-        return recipeModel.find(createQuery(ingredients, servingsNum));
+    function query(ingredients, servingsNum, f) {
+        return recipeModel.find(createQuery(ingredients, servingsNum), f);
     }
 
+    exports.queryRecipes = query;
 
 });
-
-exports.queryRecipes = query;
 
 
 //@args
