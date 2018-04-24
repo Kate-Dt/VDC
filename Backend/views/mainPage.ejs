@@ -54,12 +54,12 @@
         <a style="color:white; font-size:40px; ">VooDooCook</a>
 
         <!-- button that appears in mobile view instead of side-nav.-->
-        <button class="dropdown-toggle ingredients-hidden-button " type="button" data-toggle="dropdown"><a href="#">Ingredients</a>
+        <button class="ingredients-hidden-button " onclick="add();" type="button" ><a href="#">Ingredients</a>
             <span class="caret"></span></button>
-
+<!--
         <div class ="dropdown-menu ingredients-hidden"id="savedRecipesHtml"  >
             ingredients
-        </div>
+        </div>-->
 
 
 
@@ -92,7 +92,7 @@
 </header>
 
 <div class="search-by-name-outer-block">
-    <a href="" id="open-filters-button" class="btn" >filters</a>
+    <!--<a href="" id="open-filters-button" class="btn" >filters</a>-->
     <form id="search-by-name-form">
         <div class="container-4">
 
@@ -115,7 +115,7 @@
         <div class="sort-recipies-bar">
             <div class="sort-recipies-menu">
                 <!--drop down menu here-->
-                <div class="btn-group">
+                <div class="btn-group" style="display:none;">
                     <button type="button" class="btn btn-default dropdown-toggle buttonGeneralFilters" data-toggle="dropdown">
                         Filter <span class="caret"></span>
                     </button>
@@ -265,7 +265,15 @@
 <!--Own JavaScript -->
 
 <script>
+    var state = true;
 
+    function add() {
+
+       $(".recipies-and-ingredients-shown-wrapper").css("display", state?"none":"block");
+        $('.sidenav').css("display", state ? "block" : 'none');
+         state = !state;
+
+    };
     function writeCategories() {
 
         var names = ['Drink', 'Flavoring', 'Mixture', 'Dairy', 'Main protein',
