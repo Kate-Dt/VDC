@@ -18,6 +18,8 @@ db.once('open', function callback() {
         ingredients: [{descriptions: [String], amount: Number, unit: String, labels: [String]}],
         directions: [{step: Number, direction: String}],
         labels: [String],
+        likes: Number,
+        dislikes: Number,
         calories: Number
     }, {collection: 'recipes'});
 
@@ -43,7 +45,7 @@ db.once('open', function callback() {
         ingredient: "mozzarella cheese",
         amount: 200
     }, {ingredient: "pizza sauce", amount: 400}];
-    qry = createQuery(q, 1);
+    qry = createQuery(q, 3);
     console.log(qry["$nor"][0]['ingredients']['$elemMatch']['ingredient'])
     //console.log(qry["$nor"][1]['ingredients']['$elemMatch']['amount'])//[0]["ingredients"]);
 
@@ -56,7 +58,7 @@ db.once('open', function callback() {
 
         console.log("Filtered");//, res);
         for (var r in res)
-            console.log(res[r]["ingredients"]);
+            console.log(res[r]);
 
         //console.log("RECIPE -", res);
         //console.log(res.get("ingredients")[0]);
