@@ -49,6 +49,8 @@ db.once('open', function callback() {
     console.log(qry["$nor"][0]['ingredients']['$elemMatch']['ingredient'])
     //console.log(qry["$nor"][1]['ingredients']['$elemMatch']['amount'])//[0]["ingredients"]);
 
+    console.log(recipeModel.find(query(createQuery(q,1))));
+
     recipeModel.find(qry, function (err, res) {
 
         if (err) {
@@ -57,8 +59,9 @@ db.once('open', function callback() {
         }
 
         console.log("Filtered");//, res);
-        for (var r in res)
-            console.log(res[r]);
+        //res  = res.sort('id');
+        //for (var r in res)
+            //console.log(res[r]);
 
         //console.log("RECIPE -", res);
         //console.log(res.get("ingredients")[0]);
