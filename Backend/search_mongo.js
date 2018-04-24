@@ -12,7 +12,7 @@ db.once('open', function callback() {
         name: String,
         time: Number,
         image: String,
-        ingredients: [{descriptions: [String], amount: Number, unit: String, labels: [String]}],
+        ingredients: [{descriptions: [String], amount: Number, unit: String, labels: [String], ingredient: String}],
         directions: [{step: Number, direction: String}],
         labels: [String],
         likes: Number,
