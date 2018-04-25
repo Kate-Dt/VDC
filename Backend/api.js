@@ -108,7 +108,7 @@ exports.getCategoriesList = function(req, res) {
                 })
             })
         });*/
-        console.log(result);
+        //console.log(result);
         res.send(result);
     });
 };
