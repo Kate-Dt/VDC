@@ -203,7 +203,23 @@
 </div>
 </body> 
 <script type="text/javascript" src="../../Frontend/src/jquery.easyPaginate.js"></script>
- <!--&lt;!&ndash; jQuery JavaScript &ndash;&gt;-->
+
+<script>
+        var state = true;
+
+         function add() {
+
+                $(".recipies-and-ingredients-shown-wrapper").css("display", state?"none":"block");
+               $('.sidenav').css("display", state ? "block" : 'none');
+                  state = !state;
+
+                };
+</script>
+
+
+
+
+<!--&lt;!&ndash; jQuery JavaScript &ndash;&gt;-->
  
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <!--Own JavaScript -->
