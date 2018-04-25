@@ -1,12 +1,14 @@
-<div class="ingredient">
+<div class="ingredient" style="padding-left: 5px">
+    <span>
     <!--CheckBox -->
-    <input type="checkbox"  name="ingredient" value="includeThisIngredient">
-    <!-- name of ingredient-->
-    <span class="ingredient"><%=ingredient.ingredient%></span>
+    <input class="marker" type="checkbox" name="ingredient" value="includeThisIngredient" style="display: inline-block">
+        <!-- name of ingredient-->
+    <span class="ingredient"><%= ingredient.ingredient %></span>
+    </span>
     <!--How much?-->
     <input class="number" type="number" style=" width: 50px;">
     <!--Metrics -->
     <span class="ingredient-unit">
-        <%=ingredient.unit%>
+        <%= ingredient.unit %>
     </span>
 </div>

@@ -1,29 +1,31 @@
-<div class="mini-recipe" id="<%=recipe.id%>" style="background-image: url(<%=recipe.image%>">
-    <% if(recipe.time>0){%>
+<div class="mini-recipe" id="<%= recipe.id %>" style="background-image: url(<%= recipe.image %>">
+    <a href="https://www.allrecipes.com/recipe/<%= recipe.id %>">
+    <% if(recipe.time > 0){ %>
     <div class="mini-recipe-time">
         <span class="glyphicon glyphicon-time"></span>
-        <p><%= recipe.time%>min</p>
+        <p><%= recipe.time %>min</p>
     </div>
-    <% }%>
+    <% } %>
 
     <div class="mini-recipe-rate">
         <button class="social-like">
             <span class="like glyphicon glyphicon-thumbs-up"></span>
-            <span class="count"><%= recipe.likes%></span>
+            <span class="count"><%= recipe.likes %></span>
         </button>
         &nbsp;
         <button class="social-dislike">
             <span class="like glyphicon glyphicon-thumbs-down"></span>
-            <span class="count"><%= recipe.dislikes%></span>
+            <span class="count"><%= recipe.dislikes %></span>
         </button>
 
     </div>
 
     <div class="mini-recipe-content">
-        <h1><%= recipe.name%></h1>
-        <% if(recipe.missing){%>
-        <span class="missing-mini">Missing: <%= recipe.missing%></span>
+        <h1><%= recipe.name %></h1>
+        <% if(recipe.missing){ %>
+        <span class="missing-mini">Missing: <%= recipe.missing %></span>
         <% } %>
-        <p><%= recipe.snippet%></p>
+        <p><%= recipe.snippet %></p>
     </div>
+    </a>
 </div>
