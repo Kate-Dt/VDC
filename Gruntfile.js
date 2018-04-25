@@ -19,7 +19,7 @@ module.exports = function(grunt) {
             'no-beep': true
         },
         scripts: {
-            files: ['Frontend/src/**/*.js', 'Frontend/**/*.ejs'],
+            files: ['Frontend/src/**/*.js', 'Frontend/**/*.ejs', 'Frontend/src/*.js'],
             tasks: ['browserify:recipes']
         }
     };

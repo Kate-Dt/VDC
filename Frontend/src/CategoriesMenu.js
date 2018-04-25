@@ -24,7 +24,13 @@ function  showCategoriesList(categories) {
     for(var category in categories){
         var html_category = Templates.category({category:category});
         var $node = $(html_category);
+
+        var aux = [];
+
         for(var i = 0; i < categories[category].length; i++){
+            if (aux.includes(categories[category][i]))
+                continue
+            aux.push(categories[category][i]);
             //console.log((categories[category])[i]);
             var html_ingredient = Templates.ingredient({ingredient:(categories[category])[i]});
             $node.find(".dropdown-container").append($(html_ingredient));
