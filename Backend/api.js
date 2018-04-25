@@ -80,24 +80,35 @@ exports.getCategoriesList = function(req, res) {
         "container": []
     };*/
 
-    var result = [];
+    var result = {};
 
-    recipeModel.find({}, function (err, res) {
+    recipeModel.find({}, function (err, res1) {
         if (err) {
             console.log(err.message);
             return;
         }
-        res.forEach(function (recipe) {
+        res1.forEach(function(recipe){
+            recipe.ingredients.forEach(function(ingr){
+                ingr.labels.forEach(function(label){
+                    if(!result.hasOwnProperty(label))
+                        result[label]=[];
+                    var ingr_info = {ingredient:ingr.ingredient,unit:ingr.unit};
+                    if(result[label].indexOf(ingr_info)<0)
+                        result[label].push(ingr_info);
+                });
+            });
+        });
+        /*res1.forEach(function (recipe) {
             recipe.ingredients.forEach(function (ingr) {
                 ingr.labels.forEach(function (category) {
-                    if (!(result.includes(category)))
-                        result.push(category);
+                    if (!(result.hasOwnProperty(category)))
+                        result[category]=[];
                     if (!(result[category].includes(ingr['ingredient'])))
-                        result[category].push(ingr['ingredient']);
+                        result[category].push({ingredient:ingr['ingredient'],unit:ingr['unit']});
                 })
             })
-        });
+        });*/
         console.log(result);
+        res.send(result);
     });
-    return result;
 };

@@ -1,12 +1,5 @@
 function initAnimations(){
-    function writeCategories(){
-        alert ("ddsdsds");
-    };
     window.onload=function(){
-        writeCategories();
-        $('.dropdown-menu').click(function(event){
-            event.stopPropagation();
-        });//for dropdown not to close on click
 
         // $('#savedRecipesHtml').load('savedRecipes.html',function(){
 //    $('body').trigger('savedReady');});//load from another html

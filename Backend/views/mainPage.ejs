@@ -150,63 +150,7 @@
     <div>
     <!--list of categories hardcoded (can be opened to see what items are inside) -->
         <ul class="nav" id="listCategories">
-            <li>
 
-
-                <!-- Example of one category-->
-        <button class="dropdown-btn">example
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container" id="listInOneCategory">
-            <!--One ingridient with metrics -->
-            <div class="ingredient">
-                <!--CheckBox -->
-
-                <input type="checkbox"  name="ingredient" value="includeThisIngredient">
-                <!-- name of ingredient-->
-                Link
-                <!--How much?-->
-                <input id="number" type="number" style=" width: 50px;">
-                <!--Metrics -->
-                <select name="metrics" id="metrics">
-                    <option value="gr">Kg</option>
-                    <option value="kg">Gm</option>
-                    <option value="ml">L</option>
-                     <option value="l">Ml</option>
-                </select>
-            </div>
-          <!-- another ingredient-->
-            <div class="ingredient">
-                <input type="checkbox"  name="ingredient" value="includeThisIngredient">
-                <!-- name of ingredient-->
-                Link
-                <!--How much?-->
-                <input id="number" type="number" style=" width: 50px;">
-                <!--Metrics -->
-                <select name="metrics" id="metrics">
-                    <option value="gr">Kg</option>
-                    <option value="kg">Gm</option>
-                    <option value="ml">L</option>
-                    <option value="l">Ml</option>
-                </select>
-            </div>
-            <!-- another ingredient-->
-            <div class="ingredient">
-                <input type="checkbox"  name="ingredient" value="includeThisIngredient">
-                <!-- name of ingredient-->
-                Link
-                <!--How much?-->
-                <input id="number" type="number" style=" width: 50px;">
-                <!--Metrics -->
-                <select name="metrics" id="metrics">
-                    <option value="gr">Kg</option>
-                    <option value="kg">Gm</option>
-                    <option value="ml">L</option>
-                    <option value="l">Ml</option>
-                </select>
-            </div>
-        </div>
-            </li>
 
 </ul>
 
@@ -224,7 +168,7 @@
     <!--recipes here-->
     <div class="mini-recipes">
         <!--When user clicks on ingredient, it removes.-->
-        <div class="chosen-ingredients">
+        <!--<div class="chosen-ingredients">
             <ul id="listChosen">
                 <li>sdadas</li>
                 <li>sddolslfd</li>
@@ -243,7 +187,7 @@
                 <li>skksdkds</li>
 
             </ul>
-        </div>
+        </div>-->
 
 
         <div class="grid" id="recipes_list">
@@ -263,57 +207,6 @@
  
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <!--Own JavaScript -->
-
-<script>
-    var state = true;
-
-    function add() {
-
-       $(".recipies-and-ingredients-shown-wrapper").css("display", state?"none":"block");
-        $('.sidenav').css("display", state ? "block" : 'none');
-         state = !state;
-
-    };
-    function writeCategories() {
-
-        var names = ['Drink', 'Flavoring', 'Mixture', 'Dairy', 'Main protein',
-            'Meat', 'Grain', 'Nut', 'Sauce', 'Fastener', 'Condiment', 'Soup',
-            'Fat and vitamins', 'Cooking fat', 'Sugar', 'Alcoholic', 'Baking ingredient',
-            'Cooking liquid', 'Wrapped meal', 'Spice or herb', 'Vegetable', 'Poultry',
-            'Seafood', 'Fruit', 'Recipe extra', 'Spicy', 'Cheese'];
-        for (var i = 0; i < names.length; i++) {
-
-        var li = document.createElement('li');
-        var txt = '<button class="dropdown-btn">' + names[i] + '<i class="fa fa-caret-down"></i></button><div class="dropdown-container"></div>';
-
-        li.innerHTML = txt;
-        // alert(li.innerHTML);
-        $("#listCategories").append(li);
-          }
-
-    };
-    writeCategories();
-
-
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function() {
-
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
-            //$('body').scrollTo(dropdown[i]);
-        });
-    }
-
-
-</script>
 <!-- jQuery JavaScript
 <script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>-->
 
