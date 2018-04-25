@@ -57,7 +57,7 @@ function  showCategoriesList(categories) {
         var html_category = Templates.category({category:category});
         var $node = $(html_category);
         for(var i = 0; i < categories[category].length; i++){
-            console.log((categories[category])[i]);
+            //console.log((categories[category])[i]);
             var html_ingredient = Templates.ingredient({ingredient:(categories[category])[i]});
             $node.find(".dropdown-container").append($(html_ingredient));
 
@@ -193,7 +193,7 @@ exports.getProfile = getProfile;
 var ejs = require("ejs");
 
 exports.miniRecipe = ejs.compile("<div class=\"mini-recipe\" id=\"<%=recipe.id%>\" style=\"background-image: url(<%=recipe.image%>\">\r\n    <% if(recipe.time>0){%>\r\n    <div class=\"mini-recipe-time\">\r\n        <span class=\"glyphicon glyphicon-time\"></span>\r\n        <p><%= recipe.time%>min</p>\r\n    </div>\r\n    <% }%>\r\n\r\n    <div class=\"mini-recipe-rate\">\r\n        <button class=\"social-like\">\r\n            <span class=\"like glyphicon glyphicon-thumbs-up\"></span>\r\n            <span class=\"count\"><%= recipe.likes%></span>\r\n        </button>\r\n        &nbsp;\r\n        <button class=\"social-dislike\">\r\n            <span class=\"like glyphicon glyphicon-thumbs-down\"></span>\r\n            <span class=\"count\"><%= recipe.dislikes%></span>\r\n        </button>\r\n\r\n    </div>\r\n\r\n    <div class=\"mini-recipe-content\">\r\n        <h1><%= recipe.name%></h1>\r\n        <% if(recipe.missing){%>\r\n        <span class=\"missing-mini\">Missing: <%= recipe.missing%></span>\r\n        <% } %>\r\n        <p><%= recipe.snippet%></p>\r\n    </div>\r\n</div>");
-exports.ingredient = ejs.compile("<div class=\"ingredient\">\r\n    <!--CheckBox -->\r\n    <input type=\"checkbox\"  name=\"ingredient\" value=\"includeThisIngredient\">\r\n    <!-- name of ingredient-->\r\n    <%=ingredient.ingredient%>\r\n    <!--How much?-->\r\n    <input id=\"number\" type=\"number\" style=\" width: 50px;\">\r\n    <!--Metrics -->\r\n    <span class=\"ingredient-unit\">\r\n        <%=ingredient.unit%>\r\n    </span>\r\n</div>");
+exports.ingredient = ejs.compile("<div class=\"ingredient\">\r\n    <!--CheckBox -->\r\n    <input type=\"checkbox\"  name=\"ingredient\" value=\"includeThisIngredient\">\r\n    <!-- name of ingredient-->\r\n    <span class=\"ingredient\" style=\"padding-left: 10px\"><%=ingredient.ingredient%></span>\r\n    <!--How much?-->\r\n    <input class=\"number\" type=\"number\" style=\" width: 50px;\">\r\n    <!--Metrics -->\r\n    <span class=\"ingredient-unit\">\r\n        <%=ingredient.unit%>\r\n    </span>\r\n</div>");
 exports.category = ejs.compile("<li>\r\n    <button class=\"dropdown-btn\">\r\n        <%=category%>\r\n        <i class=\"fa fa-caret-down\"></i>\r\n    </button>\r\n    <div class=\"dropdown-container\" id=\"listInOneCategory\">\r\n    </div>\r\n</li>");
 },{"ejs":11}],7:[function(require,module,exports){
 /*

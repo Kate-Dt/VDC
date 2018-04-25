@@ -81,7 +81,7 @@ function getCategories() {
                 })
             })
         });
-        console.log(result);
+        //console.log(result);
     });
     return result;
 }
