@@ -24,17 +24,65 @@ function backendPost(url, data, callback) {
 exports.getRecipesList = function(request, callback) {
     backendGet(API_URL+"/api/get-recipes-list/",request, callback);
 };
+
+exports.getCategoriesList = function(callback){
+    backendGet(API_URL+"/api/get-categories-list/",undefined, callback);
+};
 }).call(this,"/..")
 },{}],2:[function(require,module,exports){
+var API = require("./API");
+var Templates = require("./Templates");
+var $listCategories = $("#listCategories");
+var categoriesList;
+
+function initCategoriesMenu(){
+    $('.choose-ingredient-block').on('submit', function(e){
+        e.preventDefault();
+        var value = ($(this).serialize());
+        console.log(value);
+    });
+    categories = API.getCategoriesList(function(data,respond){
+        if(!data||!respond) {
+            alert("Unable to get Recipes List!");
+            return callback(data);
+        }
+        categoriesList = data;
+        showCategoriesList(categoriesList);
+    });
+}
+
+function  showCategoriesList(categories) {
+    $listCategories.empty();
+    for(var category in categories){
+        var html_category = Templates.category({category:category});
+        var $node = $(html_category);
+        for(var i = 0; i < categories[category].length; i++){
+            //console.log((categories[category])[i]);
+            var html_ingredient = Templates.ingredient({ingredient:(categories[category])[i]});
+            $node.find(".dropdown-container").append($(html_ingredient));
+
+        }
+        $listCategories.append($node);
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+                //$('body').scrollTo(dropdown[i]);
+            });
+        }
+    }
+}
+
+exports.initCategoriesMenu = initCategoriesMenu;
+},{"./API":1,"./Templates":6}],3:[function(require,module,exports){
 function initAnimations(){
-    function writeCategories(){
-        alert ("ddsdsds");
-    };
     window.onload=function(){
-        writeCategories();
-        $('.dropdown-menu').click(function(event){
-            event.stopPropagation();
-        });//for dropdown not to close on click
 
         // $('#savedRecipesHtml').load('savedRecipes.html',function(){
 //    $('body').trigger('savedReady');});//load from another html
@@ -57,7 +105,7 @@ function topFunction(){
 
 exports.initAnimations = initAnimations;
 exports.topFunction = topFunction;
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var API = require("./API");
 var Templates = require("./Templates");
 var $recipes_list = $("#recipes_list");
@@ -108,7 +156,7 @@ function showOneRecipe(recipe){
 }
 
 exports.initRecipesMenu = initRecipesMenu;
-},{"./API":1,"./Templates":5}],4:[function(require,module,exports){
+},{"./API":1,"./Templates":6}],5:[function(require,module,exports){
 var auth2;
 var user;
 var profile;
@@ -140,12 +188,14 @@ var getProfile = function(){
 exports.initClient = initClient;
 exports.getUser = getUser;
 exports.getProfile = getProfile;
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 
 var ejs = require("ejs");
 
 exports.miniRecipe = ejs.compile("<div class=\"mini-recipe\" id=\"<%=recipe.id%>\" style=\"background-image: url(<%=recipe.image%>\">\r\n    <% if(recipe.time>0){%>\r\n    <div class=\"mini-recipe-time\">\r\n        <span class=\"glyphicon glyphicon-time\"></span>\r\n        <p><%= recipe.time%>min</p>\r\n    </div>\r\n    <% }%>\r\n\r\n    <div class=\"mini-recipe-rate\">\r\n        <button class=\"social-like\">\r\n            <span class=\"like glyphicon glyphicon-thumbs-up\"></span>\r\n            <span class=\"count\"><%= recipe.likes%></span>\r\n        </button>\r\n        &nbsp;\r\n        <button class=\"social-dislike\">\r\n            <span class=\"like glyphicon glyphicon-thumbs-down\"></span>\r\n            <span class=\"count\"><%= recipe.dislikes%></span>\r\n        </button>\r\n\r\n    </div>\r\n\r\n    <div class=\"mini-recipe-content\">\r\n        <h1><%= recipe.name%></h1>\r\n        <% if(recipe.missing){%>\r\n        <span class=\"missing-mini\">Missing: <%= recipe.missing%></span>\r\n        <% } %>\r\n        <p><%= recipe.snippet%></p>\r\n    </div>\r\n</div>");
-},{"ejs":10}],6:[function(require,module,exports){
+exports.ingredient = ejs.compile("<div class=\"ingredient\">\r\n    <!--CheckBox -->\r\n    <input type=\"checkbox\"  name=\"ingredient\" value=\"includeThisIngredient\">\r\n    <!-- name of ingredient-->\r\n    <span class=\"ingredient\" style=\"padding-left: 10px\"><%=ingredient.ingredient%></span>\r\n    <!--How much?-->\r\n    <input class=\"number\" type=\"number\" style=\" width: 50px;\">\r\n    <!--Metrics -->\r\n    <span class=\"ingredient-unit\">\r\n        <%=ingredient.unit%>\r\n    </span>\r\n</div>");
+exports.category = ejs.compile("<li>\r\n    <button class=\"dropdown-btn\">\r\n        <%=category%>\r\n        <i class=\"fa fa-caret-down\"></i>\r\n    </button>\r\n    <div class=\"dropdown-container\" id=\"listInOneCategory\">\r\n    </div>\r\n</li>");
+},{"ejs":11}],7:[function(require,module,exports){
 /*
 * jQuery easyShare plugin
 * Update on 04 april 2017
@@ -379,21 +429,22 @@ $.fn.easyPaginate = function (options) {
 };
 })(jQuery);
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 $(function () {
-    console.log("X3");
     var MainPageAnimations =  require("./MainPageAnimations");
     var RecipesMenu = require("./RecipesMenu");
     var SignIn = require("./SignIn");
     var easyPaginate = require("./jquery.easyPaginate");
     var paginateHelper = require("./paginateHelper");
+    var CategoriesMenu = require("./CategoriesMenu");
 
     SignIn.initClient();
+    CategoriesMenu.initCategoriesMenu();
     RecipesMenu.initRecipesMenu();
     MainPageAnimations.initAnimations();
 }); 
 
-},{"./MainPageAnimations":2,"./RecipesMenu":3,"./SignIn":4,"./jquery.easyPaginate":6,"./paginateHelper":8}],8:[function(require,module,exports){
+},{"./CategoriesMenu":2,"./MainPageAnimations":3,"./RecipesMenu":4,"./SignIn":5,"./jquery.easyPaginate":7,"./paginateHelper":9}],9:[function(require,module,exports){
   $('#recipes_list').easyPaginate({
         paginateElement: 'div',
         elementsPerPage: 3,
@@ -401,9 +452,9 @@ $(function () {
  
   }); 
 
-},{}],9:[function(require,module,exports){
-
 },{}],10:[function(require,module,exports){
+
+},{}],11:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1314,7 +1365,7 @@ if (typeof window != 'undefined') {
   window.ejs = exports;
 }
 
-},{"../package.json":12,"./utils":11,"fs":9,"path":13}],11:[function(require,module,exports){
+},{"../package.json":13,"./utils":12,"fs":10,"path":14}],12:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1480,7 +1531,7 @@ exports.cache = {
   }
 };
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports={
   "_from": "ejs@^2.5.9",
   "_id": "ejs@2.5.9",
@@ -1562,7 +1613,7 @@ module.exports={
   "version": "2.5.9"
 }
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -1790,7 +1841,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":14}],14:[function(require,module,exports){
+},{"_process":15}],15:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -1976,4 +2027,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[7]);
+},{}]},{},[8]);

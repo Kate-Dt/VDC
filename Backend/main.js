@@ -9,6 +9,7 @@ function configureEndpoints(app) {
     var api = require('./api');
 
     app.get('/api/get-recipes-list/', api.getRecipesList);
+    app.get('/api/get-categories-list/',api.getCategoriesList);
 
     //Сторінки
     //Головна сторінка

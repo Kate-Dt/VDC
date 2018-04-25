@@ -22,3 +22,7 @@ function backendPost(url, data, callback) {
 exports.getRecipesList = function(request, callback) {
     backendGet(API_URL+"/api/get-recipes-list/",request, callback);
 };
+
+exports.getCategoriesList = function(callback){
+    backendGet(API_URL+"/api/get-categories-list/",undefined, callback);
+};
